@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}History — HSIDetect{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1 class="hero-title">Scan <span class="accent">History</span></h1>
+  <p class="hero-sub">Last 100 scan results stored locally.</p>
+</section>
+
+<div class="card">
+  {% if entries %}
+  <div style="overflow-x:auto;">
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>ID</th><th>Timestamp</th><th>File</th>
+        <th>Verdict</th><th>Coverage</th><th>Max Conf.</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for e in entries %}
+      <tr>
+        <td><code>{{ e.id }}</code></td>
+        <td>{{ e.timestamp }}</td>
+        <td>{{ e.filename }}</td>
+        <td>
+          {% if e.verdict == 'SAFE' %}
+            <span class="badge-safe">✓ SAFE</span>
+          {% else %}
+            <span class="badge-anom">⚠ ANOMALY</span>
+          {% endif %}
+        </td>
+        <td>{{ e.anomaly_pct }}%</td>
+        <td>{{ e.max_conf }}%</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+    <div class="empty-state">
+      <div style="font-size:3rem">🔍</div>
+      <p>No scans yet. Go to the <a href="/">Scanner</a> to analyse your first image.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

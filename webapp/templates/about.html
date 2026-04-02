@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}About — HSIDetect{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1 class="hero-title">About <span class="accent">HSIDetect</span></h1>
+  <p class="hero-sub">AI-powered foreign material detection for food and agricultural products.</p>
+</section>
+
+<div class="about-grid">
+  <div class="card about-card">
+    <h3>⬡ The Model</h3>
+    <p><strong>LiteNet</strong> is a dual-branch neural network with 236K parameters trained on hyperspectral imagery (204 spectral bands, 400–1000nm).</p>
+    <ul>
+      <li><span class="tag">SpectralBranch</span> — 1D encoder with SE attention over 204 bands → 128-dim embedding</li>
+      <li><span class="tag">SpatialBranch</span> — 2D CNN over 3×3 spatial patches → 64-dim embedding</li>
+      <li><span class="tag">FusionNet</span> — MLP combining 192-dim fusion → binary output</li>
+    </ul>
+  </div>
+
+  <div class="card about-card">
+    <h3>📡 RGB → Hyperspectral Bridge</h3>
+    <p>Since cameras capture 3-channel RGB, this app uses a <strong>Gaussian spectral basis</strong> to estimate 204-band reflectance from each pixel:</p>
+    <ul>
+      <li>Blue channel → Gaussian centred at 450nm</li>
+      <li>Green channel → Gaussian centred at 550nm</li>
+      <li>Red channel → Gaussian centred at 650nm</li>
+    </ul>
+    <p>Best results come from high-quality, well-lit images of food products.</p>
+  </div>
+
+  <div class="card about-card">
+    <h3>🎯 Training Data</h3>
+    <ul>
+      <li>Synthetic pre-training: <strong>4.87M samples</strong> (18% positive)</li>
+      <li>Real fine-tuning: <strong>87,200 samples</strong> (HSI-AgriFoodAnomaly dataset)</li>
+      <li>Loss: Focal (α=0.75, γ=2.0) + Dice</li>
+      <li>Optimal threshold: <strong>{{ threshold }}%</strong></li>
+    </ul>
+  </div>
+
+  <div class="card about-card">
+    <h3>🏃 How to Interpret Results</h3>
+    <ul>
+      <li><span class="badge-safe">SAFE</span> — No significant anomalies found</li>
+      <li><span class="badge-anom">ANOMALY DETECTED</span> — Foreign material signatures found</li>
+      <li>The <strong>heatmap</strong> shows probability intensity (black=low → red=high)</li>
+      <li>The <strong>overlay</strong> highlights suspected regions in red</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

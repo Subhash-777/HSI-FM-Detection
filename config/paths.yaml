@@ -1,0 +1,46 @@
+# Dataset-specific paths configuration
+
+hsifood:
+  base_path: "data/raw/HSIFoodIngr-64/extracted"
+  hdr_files: "**/*.hdr"
+  dat_files: "**/*.dat"
+  png_files: "**/*.png"
+  json_files: "**/*.json"
+  processed_output: "data/processed/hsifood_204bands"
+
+agrifood:
+  base_path: "data/raw/HSI-AgriFoodAnomaly/extracted"
+  train:
+    hsi: "train_UseCase_1_(Avoine1)/HSI-Hybercube"
+    annotations: "train_UseCase_1_(Avoine1)/Annotation/PNG"
+    rgb: "train_UseCase_1_(Avoine1)/RGB/PNG"
+  val:
+    hsi: "val_UseCase_1_(Avoine1)/HSI-Hybercube"
+    annotations: "val_UseCase_1_(Avoine1)/Annotation/PNG"
+    rgb: "val_UseCase_1_(Avoine1)/RGB/PNG"
+  test:
+    hsi: "test_UseCase_1_(Avoine1)/HSI-Hybercube"
+    annotations: "test_UseCase_1_(Avoine1)/Annotation/PNG"
+    rgb: "test_UseCase_1_(Avoine1)/RGB/PNG"
+  processed_output: "data/processed/agrifood_204bands"
+
+# Processed data paths
+processed:
+  harmonized_cubes: "data/processed/harmonized_204bands"
+  spectral_signatures: "data/processed/spectral_signatures"
+  metadata: "data/processed/metadata"
+  pca_models: "data/processed/pca_models"
+
+# Synthetic data paths
+synthetic:
+  train: "data/synthetic/train"
+  val: "data/synthetic/val"
+  metadata: "data/synthetic/generation_logs"
+
+# Output paths
+outputs:
+  models: "outputs/models"
+  checkpoints: "experiments"
+  figures: "outputs/figures"
+  reports: "outputs/reports"
+  logs: "logs"

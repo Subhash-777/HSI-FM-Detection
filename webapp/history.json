@@ -1,0 +1,430 @@
+[
+  {
+    "id": "ba9bf6be",
+    "timestamp": "2026-03-25 11:00:23",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.59,
+    "max_conf": 99.6,
+    "mean_conf": 2.4,
+    "filename": "test.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "f5d9a33a",
+    "timestamp": "2026-03-25 10:58:08",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.52,
+    "max_conf": 99.6,
+    "mean_conf": 32.3,
+    "filename": "e4a502a1-d3b8-4b5a-abbb-4963aa8739c5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "03fad745",
+    "timestamp": "2026-03-25 10:57:21",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.43,
+    "max_conf": 99.6,
+    "mean_conf": 15.1,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L13_5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "d0c5f262",
+    "timestamp": "2026-03-25 10:51:09",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.52,
+    "max_conf": 99.6,
+    "mean_conf": 32.3,
+    "filename": "e4a502a1-d3b8-4b5a-abbb-4963aa8739c5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "6e56e31b",
+    "timestamp": "2026-03-25 10:50:15",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.47,
+    "max_conf": 99.6,
+    "mean_conf": 13.8,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_LM_8.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "30b1f4b0",
+    "timestamp": "2026-03-25 10:48:31",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.19,
+    "max_conf": 99.6,
+    "mean_conf": 17.0,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L9_8.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "7b63ac95",
+    "timestamp": "2026-03-25 10:35:46",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.21,
+    "max_conf": 99.6,
+    "mean_conf": 15.6,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L4_8.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "3ef95396",
+    "timestamp": "2026-03-25 10:18:12",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.08,
+    "max_conf": 99.6,
+    "mean_conf": 24.7,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L10_5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "5ef2ff8e",
+    "timestamp": "2026-03-25 10:17:36",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.6,
+    "max_conf": 99.6,
+    "mean_conf": 14.7,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Normal_13.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "da422745",
+    "timestamp": "2026-03-25 10:17:09",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.52,
+    "max_conf": 99.6,
+    "mean_conf": 32.3,
+    "filename": "e4a502a1-d3b8-4b5a-abbb-4963aa8739c5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "01c6c3c5",
+    "timestamp": "2026-03-25 10:08:36",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 3.0,
+    "max_conf": 99.6,
+    "mean_conf": 14.7,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Normal_13.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "30c5b0d3",
+    "timestamp": "2026-03-25 10:06:36",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.32,
+    "max_conf": 99.6,
+    "mean_conf": 16.3,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L4_5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "78471161",
+    "timestamp": "2026-03-25 10:05:37",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.52,
+    "max_conf": 99.6,
+    "mean_conf": 15.1,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L15_6.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "48442a44",
+    "timestamp": "2026-03-25 09:45:43",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.16,
+    "max_conf": 99.6,
+    "mean_conf": 32.3,
+    "filename": "e4a502a1-d3b8-4b5a-abbb-4963aa8739c5.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "198488e8",
+    "timestamp": "2026-03-25 09:42:21",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 5.1,
+    "max_conf": 98.8,
+    "mean_conf": 15.8,
+    "filename": "test_1_clean_wheat.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "019c5012",
+    "timestamp": "2026-03-25 09:42:12",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.05,
+    "max_conf": 99.6,
+    "mean_conf": 17.7,
+    "filename": "food_02_rice_clean_SAFE.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "5562a7f6",
+    "timestamp": "2026-03-25 09:41:46",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.71,
+    "max_conf": 99.6,
+    "mean_conf": 15.9,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L12_8.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "e87764ea",
+    "timestamp": "2026-03-25 09:41:06",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 3.97,
+    "max_conf": 99.6,
+    "mean_conf": 16.6,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L9_2.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "d07ba5e7",
+    "timestamp": "2026-03-25 09:40:35",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.26,
+    "max_conf": 99.6,
+    "mean_conf": 16.2,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_Inf_3.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "03683b3c",
+    "timestamp": "2026-03-25 09:40:18",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.26,
+    "max_conf": 99.6,
+    "mean_conf": 16.2,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_Inf_3.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "d8c44afe",
+    "timestamp": "2026-03-25 09:39:55",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.43,
+    "max_conf": 99.2,
+    "mean_conf": 27.5,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L4_6.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "6d1676ed",
+    "timestamp": "2026-03-25 09:39:35",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.87,
+    "max_conf": 99.6,
+    "mean_conf": 14.9,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Normal_12.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "c0652ae8",
+    "timestamp": "2026-03-25 09:38:48",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.94,
+    "max_conf": 99.2,
+    "mean_conf": 14.6,
+    "filename": "RGB_PNG_UseCase_1_(Avoine1)_Anomaly_Easy_L2_1.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "d181d259",
+    "timestamp": "2026-03-25 09:12:58",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.72,
+    "max_conf": 99.2,
+    "mean_conf": 30.1,
+    "filename": "food_03_barley_metal_ANOMALY.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "9f2e1705",
+    "timestamp": "2026-03-25 09:11:08",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "08877b90",
+    "timestamp": "2026-03-25 07:42:57",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.68,
+    "max_conf": 99.6,
+    "mean_conf": 26.2,
+    "filename": "capture.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "cb393338",
+    "timestamp": "2026-03-25 00:46:34",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.43,
+    "max_conf": 98.8,
+    "mean_conf": 28.7,
+    "filename": "test_02_safe_clean_grain.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "1ea5c573",
+    "timestamp": "2026-03-25 00:46:18",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 3.22,
+    "max_conf": 98.8,
+    "mean_conf": 7.3,
+    "filename": "test_01_anomaly_stone_debris.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "17df6e8a",
+    "timestamp": "2026-03-25 00:45:35",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "8f1f800d",
+    "timestamp": "2026-03-25 00:45:27",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "cbe0c2fe",
+    "timestamp": "2026-03-25 00:45:13",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "9f91d899",
+    "timestamp": "2026-03-25 00:43:10",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "c3ebe86a",
+    "timestamp": "2026-03-25 00:40:58",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 2.84,
+    "max_conf": 99.6,
+    "mean_conf": 19.6,
+    "filename": "61c41d30-e09c-44ae-8420-93318544d748.png",
+    "mode": "prototype"
+  },
+  {
+    "id": "6075afa1",
+    "timestamp": "2026-03-25 00:26:51",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.72,
+    "max_conf": 99.6,
+    "mean_conf": 2.4,
+    "filename": "test.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "a099f75b",
+    "timestamp": "2026-03-25 00:26:15",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.72,
+    "max_conf": 99.6,
+    "mean_conf": 2.4,
+    "filename": "test.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "9eb17795",
+    "timestamp": "2026-03-25 00:24:58",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 1.72,
+    "max_conf": 99.6,
+    "mean_conf": 2.4,
+    "filename": "test.jpg",
+    "mode": "prototype"
+  },
+  {
+    "id": "1d8bec31",
+    "timestamp": "2026-03-24 23:47:59",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.0,
+    "max_conf": 50.2,
+    "mean_conf": 50.1,
+    "filename": "image.jpg",
+    "mode": "litenet"
+  },
+  {
+    "id": "76568255",
+    "timestamp": "2026-03-24 23:47:37",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.0,
+    "max_conf": 50.2,
+    "mean_conf": 50.1,
+    "filename": "image.jpg",
+    "mode": "litenet"
+  },
+  {
+    "id": "2f6f553c",
+    "timestamp": "2026-03-24 23:28:40",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.0,
+    "max_conf": 49.8,
+    "filename": "image.jpg"
+  },
+  {
+    "id": "e90a78c1",
+    "timestamp": "2026-03-24 23:27:43",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.0,
+    "max_conf": 49.8,
+    "filename": "image.jpg"
+  },
+  {
+    "id": "a93b6998",
+    "timestamp": "2026-03-21 18:24:41",
+    "verdict": "SAFE",
+    "anomaly_pct": 0.0,
+    "max_conf": 49.8,
+    "filename": "image.jpg"
+  },
+  {
+    "id": "d2146e0a",
+    "timestamp": "2026-03-21 18:18:30",
+    "verdict": "SAFE",
+    "anomaly_pct": 100.0,
+    "max_conf": 100.0,
+    "filename": "image.jpg"
+  },
+  {
+    "id": "357d8311",
+    "timestamp": "2026-03-21 18:13:06",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 100.0,
+    "max_conf": 100.0,
+    "filename": "image.jpg"
+  },
+  {
+    "id": "4d686528",
+    "timestamp": "2026-03-21 18:12:18",
+    "verdict": "ANOMALY DETECTED",
+    "anomaly_pct": 100.0,
+    "max_conf": 100.0,
+    "filename": "image.jpg"
+  }
+]

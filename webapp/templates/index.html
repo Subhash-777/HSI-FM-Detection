@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HSIDetect — Foreign Material Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/>
+        <line x1="12" y1="2"  x2="12" y2="22"/>
+        <line x1="2"  y1="7"  x2="22" y2="7"/>
+        <line x1="2"  y1="17" x2="22" y2="17"/>
+      </svg>
+      HSI<span class="brand-accent">Detect</span>
+    </a>
+    <div class="nav-links">
+      <a href="/"        class="nav-link active">Scanner</a>
+      <a href="/history" class="nav-link">History</a>
+      <a href="/about"   class="nav-link">About</a>
+      <span id="statusDot" class="status-dot"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main-content">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1 class="hero-title">Foreign Material <span class="accent">Detection</span></h1>
+    <p class="hero-sub">Upload or capture an image to detect foreign material anomalies using hyperspectral AI.</p>
+  </div>
+
+  <!-- Scanner Card -->
+  <div class="card">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="tabUpload" class="tab active">↑ Upload Image</button>
+      <button id="tabCamera" class="tab">⊙ Live Camera</button>
+    </div>
+
+    <!-- Upload Panel -->
+    <div id="uploadPanel">
+      <!-- Hidden file input -->
+      <input type="file" id="fileInput"
+             accept="image/jpeg,image/png,image/webp"
+             style="display:none;" />
+
+      <!-- Drop zone -->
+      <div id="dropZone" class="drop-zone">
+        <!-- Hint (shown before file selected) -->
+        <div id="dropHint">
+          <div class="drop-icon">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <p class="drop-title">Drag &amp; drop an image here</p>
+          <p class="drop-sub">or click to browse &nbsp;(JPG, PNG, WEBP)</p>
+        </div>
+
+        <!-- Preview (shown after file selected) -->
+        <img id="previewImg" src="" alt="Preview" style="display:none;" />
+        <button id="clearBtn" class="btn-clear" style="display:none;">✕ Clear</button>
+      </div>
+
+      <button id="analyzeBtn" class="btn-analyse">
+        <span class="btn-dot"></span> Analyse Image
+      </button>
+    </div>
+
+    <!-- Camera Panel -->
+    <div id="cameraPanel" style="display:none;">
+      <div class="camera-area">
+        <video  id="cameraVideo"   autoplay playsinline style="display:none;"></video>
+        <canvas id="cameraCanvas"  style="display:none;"></canvas>
+        <img    id="cameraPreview" src="" alt="Capture" style="display:none;" />
+      </div>
+      <div class="camera-btns">
+        <button id="startCameraBtn"   class="btn btn-primary">▶ Start Camera</button>
+        <button id="captureBtn"       class="btn btn-secondary" style="display:none;">📷 Capture</button>
+        <button id="analyzeCameraBtn" class="btn-analyse"       style="display:none; width:auto; padding:10px 24px;">
+          <span class="btn-dot"></span> Analyse Capture
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /card -->
+
+  <!-- Results Section -->
+  <div id="resultsSection" class="results-card" style="display:none;">
+
+    <!-- Verdict banner -->
+    <div id="resultBanner" class="result-banner safe">
+      <div id="verdictIcon" class="verdict-icon safe">✓</div>
+      <div>
+        <div id="verdictText" class="verdict-title">SAFE</div>
+        <div id="verdictSub"  class="verdict-sub">No anomalies detected.</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Anomaly Coverage</div>
+        <div class="stat-value" id="statCoverage">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Max Confidence</div>
+        <div class="stat-value" id="statMaxConf">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Mean Confidence</div>
+        <div class="stat-value" id="statMeanConf">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Threshold</div>
+        <div class="stat-value" id="statThreshold">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Sensitivity</div>
+        <div class="stat-value" id="statSensitivity">—</div>
+      </div>
+    </div>
+
+    <!-- Image trio -->
+    <div class="image-trio">
+      <div class="image-panel">
+        <div class="image-label">Original</div>
+        <img id="imgOriginal" src="" alt="Original" />
+      </div>
+      <div class="image-panel">
+        <div class="image-label">Anomaly Heatmap</div>
+        <img id="imgHeatmap" src="" alt="Heatmap" />
+      </div>
+      <div class="image-panel">
+        <div class="image-label">Overlay</div>
+        <img id="imgOverlay" src="" alt="Overlay" />
+      </div>
+    </div>
+
+  </div><!-- /resultsSection -->
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <span>HSIDetect</span>
+  <span class="footer-dot">·</span>
+  <span>LiteNet Model</span>
+  <span class="footer-dot">·</span>
+  <span>204-Band Hyperspectral Analysis</span>
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

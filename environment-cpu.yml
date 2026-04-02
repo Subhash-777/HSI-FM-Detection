@@ -1,0 +1,58 @@
+name: hsi-fm-cpu
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core
+  - python=3.11
+  - pip
+
+  # PyTorch CPU build
+  - pytorch=2.5.1
+  - torchvision=0.20.1
+  - torchaudio=2.5.1
+  - cpuonly
+
+  # Numeric & scientific
+  - numpy=2.0.2
+  - scipy=1.13.1
+  - pandas=2.2.2
+
+  # ML & image processing
+  - scikit-learn=1.5.1
+  - scikit-image=0.24.0
+  - opencv=4.10.0
+  - pillow=10.4.0
+
+  # HDF5 & I/O
+  - h5py=3.11.0
+  - pyyaml=6.0.2
+
+  # Visualization
+  - matplotlib=3.9.0
+  - seaborn=0.13.2
+  - plotly=5.23.0
+
+  # Utilities
+  - tqdm=4.66.5
+  - psutil=6.0.0
+  - joblib=1.4.2
+
+  # Jupyter (optional)
+  - jupyterlab=4.2.5
+  - ipykernel=6.29.5
+
+  # Testing (optional)
+  - pytest=8.3.3
+  - pytest-cov=5.0.0
+
+  - pip:
+      - spectral==0.23.1
+      - albumentations==1.4.3
+      - colorlog==6.9.0
+      - tensorboard==2.17.1
+      - onnx==1.16.2
+      - onnxruntime==1.19.2
+      - python-dotenv==1.0.1

@@ -1,0 +1,55 @@
+Training model...
+==========================================
+HSI Model Training Pipeline
+==========================================
+
+[OK] Synthetic .pt files exist, skipping synthetic preprocessing
+[OK] Real .pt files exist, skipping real preprocessing
+
+======================================================================
+Preprocessing Status Check
+======================================================================
+[OK] Synthetic Train: 4314.8 MB, 4,875,401 samples (pos=875,401, neg=4,000,000, ratio=17.96%)
+[OK] Synthetic Val: 215.8 MB, 243,873 samples (pos=43,873, neg=200,000, ratio=17.99%)
+[OK] Real Train: 77.2 MB, 87,200 samples (pos=16,000, neg=71,200, ratio=18.35%)
+[OK] Real Val: 14.9 MB, 16,800 samples (pos=3,200, neg=13,600, ratio=19.05%)
+======================================================================
+[OK] All files OK. Ready for training.
+[OK] All files OK. Ready for training.
+
+==========================================
+Phase 1: Synthetic Pre-training
+==========================================
+[OK] Phase1 model exists, skipping training
+
+==========================================
+Phase 2: Real Data Fine-tuning
+==========================================
+2026-03-21 16:14:26,903 - INFO - ======================================================================
+2026-03-21 16:14:26,904 - INFO - PHASE 2: REAL DATA FINE-TUNING (IMPROVED)
+2026-03-21 16:14:26,904 - INFO - ======================================================================
+2026-03-21 16:14:26,904 - INFO - Device:        cuda
+2026-03-21 16:14:26,904 - INFO - Pretrained:    experiments/phase1_synthetic/best_model.pth
+2026-03-21 16:14:26,905 - INFO - Epochs:        75
+2026-03-21 16:14:26,905 - INFO - Learning rate: 0.0001
+2026-03-21 16:14:26,905 - INFO - Weight decay:  0.0001
+2026-03-21 16:14:26,905 - INFO - Warmup epochs: 5
+2026-03-21 16:14:26,916 - INFO - SpectralBranch1D: n_bands=204, output_dim=128
+2026-03-21 16:14:26,917 - INFO - SpatialBranch2D: output_dim=64
+2026-03-21 16:14:26,917 - INFO - FusionNet: input=192, hidden=64
+2026-03-21 16:14:26,917 - INFO - LiteNet: Total params=236,094
+2026-03-21 16:14:27,015 - INFO - Loading pretrained weights...
+SpectralBranch1D (SE): n_bands=204, output_dim=128
+Traceback (most recent call last):
+  File "E:\SE\scripts\train_phase2.py", line 5, in <module>
+    finetuner = RealDataFinetuner(
+  File "E:\SE\.\src\training\finetune_real.py", line 247, in __init__
+    self._load_pretrained(pretrained_model_path)
+  File "E:\SE\.\src\training\finetune_real.py", line 306, in _load_pretrained
+    self.model.load_state_dict(ck["model_state_dict"])
+  File "C:\Users\subha\miniconda3\envs\hsi-fm\lib\site-packages\torch\nn\modules\module.py", line 2584, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for LiteNet:
+	Missing key(s) in state_dict: "spectral_branch.encoder.0.weight", "spectral_branch.encoder.0.bias", "spectral_branch.encoder.1.weight", "spectral_branch.encoder.1.bias", "spectral_branch.encoder.1.running_mean", "spectral_branch.encoder.1.running_var", "spectral_branch.encoder.4.weight", "spectral_branch.encoder.4.bias", "spectral_branch.encoder.5.weight", "spectral_branch.encoder.5.bias", "spectral_branch.encoder.5.running_mean", "spectral_branch.encoder.5.running_var", "spectral_branch.encoder.8.weight", "spectral_branch.encoder.8.bias", "spectral_branch.encoder.9.weight", "spectral_branch.encoder.9.bias", "spectral_branch.encoder.9.running_mean", "spectral_branch.encoder.9.running_var", "spectral_branch.band_attention.0.weight", "spectral_branch.band_attention.0.bias", "spectral_branch.band_attention.2.weight", "spectral_branch.band_attention.2.bias". 
+	Unexpected key(s) in state_dict: "spectral_branch.conv1.weight", "spectral_branch.conv1.bias", "spectral_branch.bn1.weight", "spectral_branch.bn1.bias", "spectral_branch.bn1.running_mean", "spectral_branch.bn1.running_var", "spectral_branch.bn1.num_batches_tracked", "spectral_branch.conv2.weight", "spectral_branch.conv2.bias", "spectral_branch.bn2.weight", "spectral_branch.bn2.bias", "spectral_branch.bn2.running_mean", "spectral_branch.bn2.running_var", "spectral_branch.bn2.num_batches_tracked", "spectral_branch.conv3.weight", "spectral_branch.conv3.bias", "spectral_branch.bn3.weight", "spectral_branch.bn3.bias", "spectral_branch.bn3.running_mean", "spectral_branch.bn3.running_var", "spectral_branch.bn3.num_batches_tracked". 
+[FATAL] Phase 2 fine-tuning failed

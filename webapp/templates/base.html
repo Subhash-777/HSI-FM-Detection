@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}HSI Anomaly Detector{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <span class="brand-icon">⬡</span>
+      <span class="brand-text">HSI<span class="brand-accent">Detect</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/"        class="nav-link {% if request.path == '/'        %}active{% endif %}">Scanner</a>
+      <a href="/history" class="nav-link {% if request.path == '/history' %}active{% endif %}">History</a>
+      <a href="/about"   class="nav-link {% if request.path == '/about'   %}active{% endif %}">About</a>
+    </div>
+    <div id="statusDot" class="status-dot" title="System online"></div>
+  </div>
+</nav>
+
+<!-- ── Main ───────────────────────────────────────────────────────── -->
+<main class="main-content">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <p>HSIDetect &nbsp;·&nbsp; LiteNet Model &nbsp;·&nbsp; 204-Band Hyperspectral Analysis</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

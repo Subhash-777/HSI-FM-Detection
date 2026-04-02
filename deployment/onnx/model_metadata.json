@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5049999999999999,
+  "n_bands": 204,
+  "spatial_size": 3,
+  "input_names": [
+    "spectra",
+    "spatial"
+  ],
+  "output_name": "logits",
+  "postprocess": "sigmoid \u2192 threshold"
+}

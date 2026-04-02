@@ -1,0 +1,278 @@
+# ============================================================
+# Detailed Model Architecture Parameters
+# LiteNet - Lightweight Dual-Branch Network
+# ============================================================
+
+litenet:
+  # ========================================
+  # Spectral Branch - 1D CNN
+  # ========================================
+  spectral_branch:
+    description: "Processes 204-band spectral signatures"
+    input_shape: [batch, 204]  # Input spectrum
+    
+    architecture:
+      # Block 1: Initial feature extraction
+      - name: "spectral_conv1"
+        type: "Conv1d"
+        in_channels: 1
+        out_channels: 32
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spectral_bn1"
+        type: "BatchNorm1d"
+        num_features: 32
+        
+      - name: "spectral_relu1"
+        type: "ReLU"
+        inplace: true
+      
+      # Block 2: Deeper features
+      - name: "spectral_conv2"
+        type: "Conv1d"
+        in_channels: 32
+        out_channels: 64
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spectral_bn2"
+        type: "BatchNorm1d"
+        num_features: 64
+        
+      - name: "spectral_relu2"
+        type: "ReLU"
+        inplace: true
+      
+      # Block 3: High-level features
+      - name: "spectral_conv3"
+        type: "Conv1d"
+        in_channels: 64
+        out_channels: 128
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spectral_bn3"
+        type: "BatchNorm1d"
+        num_features: 128
+        
+      - name: "spectral_relu3"
+        type: "ReLU"
+        inplace: true
+      
+      # Global pooling
+      - name: "spectral_pool"
+        type: "AdaptiveAvgPool1d"
+        output_size: 1
+      
+      # Flatten
+      - name: "spectral_flatten"
+        type: "Flatten"
+    
+    output_shape: [batch, 128]  # Final feature vector
+    output_dim: 128
+
+  # ========================================
+  # Spatial Branch - 2D CNN
+  # ========================================
+  spatial_branch:
+    description: "Processes 3x3 PCA-reduced spatial patches"
+    input_shape: [batch, 3, 3, 3]  # [B, C, H, W]
+    
+    architecture:
+      # Block 1: Initial spatial features
+      - name: "spatial_conv1"
+        type: "Conv2d"
+        in_channels: 3
+        out_channels: 16
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spatial_bn1"
+        type: "BatchNorm2d"
+        num_features: 16
+        
+      - name: "spatial_relu1"
+        type: "ReLU"
+        inplace: true
+      
+      # Block 2: Deeper spatial features
+      - name: "spatial_conv2"
+        type: "Conv2d"
+        in_channels: 16
+        out_channels: 32
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spatial_bn2"
+        type: "BatchNorm2d"
+        num_features: 32
+        
+      - name: "spatial_relu2"
+        type: "ReLU"
+        inplace: true
+      
+      # Block 3: High-level spatial features
+      - name: "spatial_conv3"
+        type: "Conv2d"
+        in_channels: 32
+        out_channels: 64
+        kernel_size: 3
+        stride: 1
+        padding: 1
+        bias: true
+        
+      - name: "spatial_bn3"
+        type: "BatchNorm2d"
+        num_features: 64
+        
+      - name: "spatial_relu3"
+        type: "ReLU"
+        inplace: true
+      
+      # Global pooling
+      - name: "spatial_pool"
+        type: "AdaptiveAvgPool2d"
+        output_size: [1, 1]
+      
+      # Flatten
+      - name: "spatial_flatten"
+        type: "Flatten"
+    
+    output_shape: [batch, 64]  # Final feature vector
+    output_dim: 64
+
+  # ========================================
+  # Fusion Network
+  # ========================================
+  fusion:
+    description: "Combines spectral and spatial features for classification"
+    input_shape: [batch, 192]  # 128 (spectral) + 64 (spatial)
+    
+    architecture:
+      # Concatenation
+      - name: "fusion_concat"
+        type: "Concatenate"
+        dim: 1
+      
+      # Hidden layer 1
+      - name: "fusion_fc1"
+        type: "Linear"
+        in_features: 192
+        out_features: 128
+        bias: true
+        
+      - name: "fusion_relu1"
+        type: "ReLU"
+        inplace: true
+        
+      - name: "fusion_dropout1"
+        type: "Dropout"
+        p: 0.3
+      
+      # Hidden layer 2
+      - name: "fusion_fc2"
+        type: "Linear"
+        in_features: 128
+        out_features: 64
+        bias: true
+        
+      - name: "fusion_relu2"
+        type: "ReLU"
+        inplace: true
+        
+      - name: "fusion_dropout2"
+        type: "Dropout"
+        p: 0.3
+      
+      # Output layer (logits)
+      - name: "fusion_output"
+        type: "Linear"
+        in_features: 64
+        out_features: 1
+        bias: true
+    
+    output_shape: [batch, 1]  # Binary classification logit
+
+  # ========================================
+  # Model Summary
+  # ========================================
+  summary:
+    total_parameters: ~150000  # Approximately 150K parameters
+    model_size_mb: ~0.6  # Very lightweight
+    input_bands: 204
+    spatial_patch_size: [3, 3]
+    output_classes: 1  # Binary (anomaly vs normal)
+    loss_function: "BCEWithLogitsLoss"
+
+# ============================================================
+# Alternative Architectures (for experimentation)
+# ============================================================
+
+# Transformer-based Spectral Branch
+transformer_spectral:
+  input_dim: 204
+  embed_dim: 128
+  num_heads: 4
+  num_layers: 2
+  ff_dim: 256
+  dropout: 0.1
+  output_dim: 128
+
+# ResNet-style Spatial Branch
+resnet_spatial:
+  input_channels: 3
+  block_channels: [16, 32, 64]
+  num_blocks_per_stage: [2, 2, 2]
+  use_se_block: false  # Squeeze-and-Excitation
+  output_dim: 64
+
+# ============================================================
+# GAN-based Semi-supervised Model (Future Work)
+# ============================================================
+gan_semisupervised:
+  generator:
+    latent_dim: 100
+    output_bands: 204
+    hidden_dims: [128, 256, 512]
+    activation: "leaky_relu"
+    output_activation: "tanh"
+    
+  discriminator:
+    input_bands: 204
+    hidden_dims: [512, 256, 128]
+    activation: "leaky_relu"
+    dropout: 0.3
+    
+  training:
+    lr_generator: 0.0002
+    lr_discriminator: 0.0002
+    beta1: 0.5
+    beta2: 0.999
+    n_critic: 5  # Train discriminator 5x per generator step
+
+# ============================================================
+# Attention Mechanisms (Optional Enhancement)
+# ============================================================
+attention:
+  spectral_attention:
+    type: "channel_attention"  # or "self_attention"
+    reduction_ratio: 8
+    
+  spatial_attention:
+    type: "spatial_attention"
+    kernel_size: 7
+    
+  fusion_attention:
+    type: "cross_attention"
+    num_heads: 4
