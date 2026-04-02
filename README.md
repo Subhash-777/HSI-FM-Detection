@@ -895,35 +895,6 @@ If you use this project in your research, please cite:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### Commercial Use
-For commercial applications, please contact:
-- **Email:** your.email@example.com
-- **Institution:** Your Research Institute
-
----
-
-## 👥 Contact & Support
-
-### Questions & Issues
-- **GitHub Issues:** [Create an issue](https://github.com/yourusername/HSI-FM-Detection/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/HSI-FM-Detection/discussions)
-
-### Maintainers
-- **Lead Developer:** Your Name (your.email@example.com)
-- **Contributors:** [List of contributors]
-
-### Acknowledgments
-- HSIFoodIngr-64 dataset creators
-- HSI-AgriFoodAnomaly dataset creators (L@bISEN, ISEN Ouest)
-- Giessen GHIFVD database maintainers
-- PyTorch and open-source community
-
----
-
 ## 📊 Project Statistics
 
 - **Lines of Code:** 15,000+
@@ -979,8 +950,3 @@ For commercial applications, please contact:
 
 ---
 
-**Last Updated:** December 27, 2025
-**Version:** 1.0.0
-**Status:** Active & Maintained
-
-⭐ If you find this project useful, please consider starring it on GitHub!
